@@ -1,30 +1,33 @@
 --DML
 USE db_devconnect;
 
---COLUNA USUARIO
-INSERT INTO tb_usuario (nome completo, nome_usuario, email, senha, foto_perfil_url)
+INSERT INTO Usuario(nome_completo,nome_usuario, email, senha, foto_perfil_url)
 VALUES 
-('Daniela Rocha', 'danirocha', 'danielarochgmail.com', 'danirochabr', 'www.imagemdevcon');
+('Livia Caires', 'liviacaires', 'liviacaires@icloud.com', 'liviacaires', 'Foto1.png'), 
+('Amy Lee', 'amylee', 'amyleerebeka@gmail.com', 'amylee2', 'Foto2.png');
 
-SELECT * FROM tb_usuario;
+INSERT INTO Usuario(nome_completo,nome_usuario, email, senha, foto_perfil_url)
+VALUES 
+('Eloysa', 'eloysa', 'eloysa@icloud.com', '123', 'Foto1.png')
 
---COLUNA PUBLICACAO
-INSERT INTO tb_publicacao (descricao, imagem_url, data_publicacao)
-VALUES
-('Hoje o dia esta lindo','www.imagemdevcon','2025-10-02');
+SELECT * FROM Usuario;
 
-SELECT * FROM tb_publicacao;
+INSERT INTO Seguidor(usuarioid, seguidorid)
+VALUES (1, 2);
 
---COLUNA CURTIDA
-INSERT INTO tb_curtida (usuario, publicacao)
-VALUES
-('danirocha', 'foto');
+SELECT * FROM Seguidor;
 
-SELECT * FROM tb_curtida;
+INSERT INTO Publicacao(usuarioid, descricao, imagem_url, data_publicacao)
+VALUES (2, 'Hoje o dia foi legal', 'url.6969', '2025-06-11');
 
---COLUNA COMENTARIO
-INSERT INTO tb_comentario (texto, data_comentario)
-VALUES
-('Que foto bonita', '2025-10-02');
+SELECT * FROM Publicacao;
 
-SELECT * FROM tb_comentario;
+INSERT INTO Curtida(usuarioid, publicacaoid)
+VALUES (1, 1);
+
+SELECT * FROM Curtida;
+
+INSERT INTO Comentario(usuarioid, publicacaoid, texto, data_comentario)
+VALUES (1, 1, 'Noite incrivel', '2025-06-11');
+
+SELECT * FROM Comentario;
